@@ -17,3 +17,11 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::group(['prefix' => 'register'], function () {
+    Route::post('/validateAccount', 'SupplierController@validateAccount');
+    Route::post('/validatePersonal', 'SupplierController@validatePersonal');
+    Route::post('/validateProfessional', 'SupplierController@validateProfessional');
+    Route::post('/validateService', 'SupplierController@validateService');
+    Route::post('/validateAll', 'SupplierController@validateAll');
+});
